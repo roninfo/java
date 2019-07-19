@@ -1,6 +1,6 @@
 package hackerrank;
 
-import Util.GetFileFromResources;
+import util.GetFileFromResources;
 import org.junit.Test;
 
 import java.io.*;
