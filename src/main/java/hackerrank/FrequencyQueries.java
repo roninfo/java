@@ -4,10 +4,7 @@ import util.GetFileFromResources;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -16,10 +13,9 @@ import java.util.stream.Stream;
 
 public class FrequencyQueries {
 
-    String fileName = "inputs/frequency_input13.txt";
+    static String fileName = "inputs/frequency_input10.txt";
 
-    @Test
-    public void main() {
+    static public void main(String[] args) {
 
         long start = System.currentTimeMillis();
         runWithArray();
@@ -28,7 +24,7 @@ public class FrequencyQueries {
         System.out.println(finish - start);
     }
 
-    String freqQueryArray(List<int[]> queries) {
+    static String freqQueryArray(List<int[]> queries) {
         final int INSERT = 1;
         final int DELETE = 2;
         Map<Integer, Integer> group = new HashMap<>();
@@ -54,7 +50,7 @@ public class FrequencyQueries {
         return result.toString();
     }
 
-    String freqQuery(List<List<Integer>> queries) {
+    static String freqQuery(List<List<Integer>> queries) {
         final int INSERT = 1;
         final int DELETE = 2;
         Map<Integer, Integer> group = new HashMap<>();
@@ -80,7 +76,7 @@ public class FrequencyQueries {
         return result.toString();
     }
 
-    private void runWithArray() {
+    static private void runWithArray() {
         File file = GetFileFromResources.INSTANCE.getFileFromResources(fileName);
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
