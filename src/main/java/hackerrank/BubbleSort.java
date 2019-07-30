@@ -5,7 +5,7 @@ import org.junit.Test;
 public class BubbleSort {
 
     @Test
-    public void Solution() {
+    public void solution() {
         int[] a = {6,4,1};
 
         int countSwaps = 0;
@@ -25,10 +25,5 @@ public class BubbleSort {
         System.out.println("Array is sorted in " + countSwaps + " swaps.");
         System.out.println("First Element: " + a[0]);
         System.out.println("Last Element: " + a[a.length-1]);
-    }
-
-    private void swap(int[] result, int position, int elementInner, int elementOut) {
-
-
     }
 }
