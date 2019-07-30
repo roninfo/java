@@ -4,13 +4,13 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.function.IntConsumer;
 
 public class SherlockAndAnagrams {
 
     @Test
     public void init() {
-        String s = "ifailuhkqq";
+        String s = "kkkkk";
         sherlockAndAnagrams(s);
     }
 
@@ -28,6 +28,9 @@ public class SherlockAndAnagrams {
             }
         }
 
+        PairSubstrings collect = map.values().stream().collect(PairSubstrings::new, PairSubstrings::accept, PairSubstrings::combine);
+
+
         for (int i : map.values()) {
             if (i == 2) {
                 count++;
@@ -37,5 +40,22 @@ public class SherlockAndAnagrams {
             }
         }
         System.out.println(count);
+        System.out.println(collect.count);
+    }
+
+    class PairSubstrings implements IntConsumer {
+        private int count = 0;
+
+        public void accept(int i) {
+            if (i == 2) {
+                count++;
+            } else if (i >= 2) {
+                count += i * (i - 1) / 2;
+            }
+        }
+
+        public void combine(PairSubstrings other) {
+           // count += other.count;
+        }
     }
 }
